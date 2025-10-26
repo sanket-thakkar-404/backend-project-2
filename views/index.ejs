@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheet/style.css" />
+    <script src="/javascript/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <div class="w-full h-full bg-zinc-900 p-10 text-white">
+       <h1 class="font-bold text-2xl mb-10 text-zinc-400 items-center tracking-tighter">Add Your Employee</h1>
+      <form action="/create" method="post">
+        <div class="flex gap-5 flex-wrap">
+          <div class="w-full md:w-[48%]">
+            <label for="name" class="block mb-2 ml-2">Name</label>
+            <input
+              class="bg-transparent px-6 py-2 border-2 border-zinc-800 rounded-xl outline-none w-full"
+              type="text"
+              name="name"
+              placeholder="Enter Your name"
+            />
+          </div>
+
+          <div class="w-full md:w-[48%]">
+            <label for="email" class="block mb-2 ml-2">Email</label>
+            <input
+              class="bg-transparent px-6 py-2 border-2 border-zinc-800 rounded-xl outline-none w-full"
+              type="email"
+              name="email"
+              placeholder="Enter Your email"
+            />
+          </div>
+
+          <div class="w-full md:w-[48%]">
+            <label for="number" class="block mb-2 ml-2">Phone Number</label>
+            <input
+              class="bg-transparent px-6 py-2 border-2 border-zinc-800 rounded-xl outline-none w-full"
+              type="number"
+              name="number"
+              placeholder="Phone number"
+            />
+          </div>
+
+          <div class="w-full md:w-[48%]">
+            <label for="age" class="block mb-2 ml-2">Age</label>
+            <input
+              class="bg-transparent px-6 py-2 border-2 border-zinc-800 rounded-xl outline-none w-full"
+              type="number"
+              name="age"
+              placeholder="Enter Your Age"
+            />
+          </div>
+
+          <div class="w-full md:w-[48%]">
+            <label for="image" class="block mb-2 ml-2">Select Your Role</label>
+            <select
+              class="bg-transparent px-6 py-3 border-2 border-zinc-800 rounded-xl outline-none w-full"
+              name="role"
+            >
+              <option value="">-- Select --</option>
+              <option value="HR">HR</option>
+              <option value="Manager">Manager</option>
+              <option value="Employee">Employee</option>
+              <option value="Staff">Staff</option>
+            </select>
+          </div>
+
+          <div class="w-full md:w-[48%]">
+            <label for="image" class="block mb-2 ml-2">Upload Image</label>
+            <input
+              class="bg-transparent px-6 py-2 border-2 border-zinc-800 rounded-xl outline-none w-full"
+              type="text"
+              name="image"
+              placeholder="Image Url"
+            />
+          </div>
+          <div class="w-full flex justify-center">
+            <button
+              type="submit"
+              class="px-8 py-3 bg-blue-500 mt-5 rounded-lg text-"
+            >
+              Create User
+            </button>
+          </div>
+        </div>
+      </form>
+
+       <div class="see all users flex justify-between mb-10 mt-5"> 
+        <h1>All Employees</h1>
+          <a class="text-blue-500" href="/read"> View All~~></a>
+        </div>
+      <div class="users flex flex-wrap gap-5">
+
+        <% users.forEach((e)=>{ %>
+          <div class="user w-72 p-4 bg-zinc-700 rounded-xl">
+            <div class="w-full h-72 rounded-lg">
+              <img src="<%=e.image%>" alt="user" class="w-full h-full object-fit-cover rounded-md">
+            </div>
+            <h2 class="text-xl mt-5 tracking-tighter"><%=e.name%> <span class="ml-3"><%=e.age%></span> </h2>
+            <h5 class="text-lg font-bold text-zinc-400"><%=e.role%></h5>
+            <h5 class="text-zinc-500"><%=e.email%></h5>
+          <div class="mt-8 flex gap-5">
+            <a href="#" class="text-zinc-400">Edit User</a>
+            <a href="/delete?id=<%= e._id %>" class="text-red-500">Delete User</a>
+          </div>
+        </div>
+        <%})%>
+       </div>
+
+      
+      
+    </div>
+  </body>
+</html>
