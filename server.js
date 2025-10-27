@@ -43,16 +43,28 @@ app.get('/read', async (req, res) => {
   res.render('read', { users });
 })
 
-app.get('/delete' , async (req,res)=>{
+app.get('/delete/:id' , async (req,res)=>{
   try{
-    const {id} = req.query;
-    const deleteduser = await userModel.findOneAndDelete({_id:id})
+    const deleteduser = await userModel.findOneAndDelete({_id:req.params.id})
     res.redirect("/read");
   }catch(err) {
      console.log(err);
     res.status(500).send("Server Error ❌");
   }
 
+})
+
+app.get('/edit/:id', async (req, res) => {
+  const userUpdate = await userModel.findById(req.params.id)
+  res.render('edit' , {userUpdate})
+})
+
+app.post('/update/:id' , async (req,res)=>{
+  const data = req.body
+  const id = req.params.id
+  const updatedUser = await userModel.findOneAndUpdate({_id : id} , {$set : data} , {new : true})
+  
+  res.redirect('/read')
 })
 
 app.listen(port, (req, res) => {

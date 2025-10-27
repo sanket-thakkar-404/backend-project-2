@@ -102,8 +102,8 @@
             <h5 class="text-lg font-bold text-zinc-400"><%=e.role%></h5>
             <h5 class="text-zinc-500"><%=e.email%></h5>
           <div class="mt-8 flex gap-5">
-            <a href="#" class="text-zinc-400">Edit User</a>
-            <a href="/delete?id=<%= e._id %>" class="text-red-500">Delete User</a>
+            <a href="/edit/<%= e._id %>" class="text-zinc-400">Edit User</a>
+            <a href="/delete/<%= e._id %>"" class="text-red-500">Delete User</a>
           </div>
         </div>
         <%})%>

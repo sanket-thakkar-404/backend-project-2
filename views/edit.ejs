@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheet/style.css" />
+    <script src="/javascript/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <div class="w-full h-full bg-zinc-900 p-10 text-white">
+       <h1 class="font-bold text-2xl mb-10 text-zinc-400 items-center tracking-tighter">Update Employee Details</h1>
+      <form action="/update/<%= userUpdate._id%>" method="post">
+            <div>
+              <input
+              class="bg-transparent px-6 py-2  border-2 border-zinc-800  text-zinc-600 rounded-xl outline-none"
+              type="text"
+              placeholder="Enter Your name"
+              value="<%=userUpdate.name %>"
+              readonly
+            />
+            <input
+              class="bg-transparent px-6 py-2 border-2 border-zinc-800 rounded-xl outline-none text-zinc-600 "
+              type="email"
+              readonly
+              value="<%= userUpdate.email%>"
+              placeholder="Enter Your email"
+            />
+            <input
+              class="bg-transparent px-6 py-2 border-2 border-zinc-800 rounded-xl outline-none text-zinc-600"
+              type="text"
+              readonly
+              value="<%= userUpdate.number%>"
+              placeholder="Phone number"
+            />
+            <input
+              class="bg-transparent px-6 py-2 border-2 border-zinc-800 rounded-xl outline-none text-zinc-600"
+              readonly
+              value="<%= userUpdate.age%>"
+              placeholder="Enter Your Age"
+            />
+            <input
+              class="bg-transparent px-6 py-2 border-2 border-zinc-800 rounded-xl outline-none text-zinc-600"
+              type="text"
+              value="<%= userUpdate.image%>"
+              placeholder="Image Url"
+            />
+            </div>
+
+            <div class="mt-5">
+              <input
+              class="bg-transparent px-6 py-2 border-2 border-zinc-800 rounded-xl outline-none"
+              type="text"
+              name="name"
+              placeholder="Enter Your name"
+            />
+            <input
+              class="bg-transparent px-6 py-2 border-2 border-zinc-800 rounded-xl outline-none "
+              type="email"
+              name="email"
+              placeholder="Enter Your email"
+            />
+            <input
+              class="bg-transparent px-6 py-2 border-2 border-zinc-800 rounded-xl outline-none"
+              type="number"
+              name="number"
+              placeholder="Phone number"
+            />
+            <input
+              class="bg-transparent px-6 py-2 border-2 border-zinc-800 rounded-xl outline-none"
+              type="number"
+              name="age"
+              placeholder="Enter Your Age"
+            />
+            <input
+              class="bg-transparent px-6 py-2 border-2 border-zinc-800 rounded-xl outline-none "
+              type="text"
+              name="image"
+              placeholder="Image Url"
+            />
+            </div>
+            <input
+              type="submit"
+              value="Update User"
+              class="px-8 py-3 bg-yellow-500 mt-10 rounded-lg text-lg"
+            >
+      </form>
+    </div>
+  </body>
+</html>
